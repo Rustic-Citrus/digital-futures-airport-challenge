@@ -14,7 +14,7 @@ export function testTotalAircraft() {
     airport.moveVehicleToAirport(aircraft);
   }
 
-  const actualNumberOfAircraft = airport.getTotalAircraft();
+  const actualNumberOfAircraft = airport.getTotalVehicles();
 
   if (actualNumberOfAircraft !== expectedNumberOfAircraft) {
     console.log(`FAIL: Expected ${expectedNumberOfAircraft} aircraft, but actual number was ${actualNumberOfAircraft}.`);
