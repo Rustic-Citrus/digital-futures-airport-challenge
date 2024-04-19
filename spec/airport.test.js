@@ -8,8 +8,8 @@ export function testTotalAircraft() {
 
   for (let i = 0; i < 15; i++) {
     const seedOne = Math.floor(Math.random() * airlines.length);
-    const seedTwo = Math.floor(Math.random() * 10) // Number of flight numbers for each airline
-    const aircraft = new Aircraft(airlines[seedOne].name, airlines[seedOne].flightNumbers[seedTwo]);
+    const seedTwo = Math.floor(Math.random() * 900) + 100 // Random three-digit flight number
+    const aircraft = new Aircraft(airlines[seedOne].name, `${airlines[seedOne].prefix}${seedTwo}`);
 
     airport.moveAircraftToAirport(aircraft);
   }
