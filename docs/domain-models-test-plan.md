@@ -29,5 +29,5 @@ As a **member of the airport operations staff**, I want to be able to see the oc
 ### Test Cases
 
 * [ ] The user can move an aircraft to the airport.
-* [ ] The user can retrieve the total number of aircraft that are in the airport.
+* [X] The user can retrieve the total number of aircraft that are in the airport.
 * [ ] The same aircraft is not counted more than once.

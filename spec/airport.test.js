@@ -3,6 +3,7 @@ import Aircraft from "../src/aircraft.js";
 import airlines from "../data/airlines.json" assert { type: "json" };
 
 export function testTotalAircraft() {
+  console.log("TEST: The user can retrieve the total number of aircraft that are in the airport.");
   const airport = new Airport();
   const expectedNumberOfAircraft = 15;
 
