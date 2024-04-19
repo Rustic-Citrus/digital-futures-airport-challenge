@@ -22,7 +22,8 @@ As a **member of the airport operations staff**, I want to be able to see the oc
 | --- | --- | --- | --- |
 | Airport | totalAircraft @Number | getTotalAircraft() | @Number |
 |  | vehicles @Array[@Aircraft] | getVehicles() | @Array[@Aircraft] |
-| Aircraft | id @String | getId() | @String |
+| Aircraft | flightNumber @String | getFlightNumber() | @String |
+|  | airline @String | getAirline() | @String |
 
 ### Test Cases
 
