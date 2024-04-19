@@ -20,9 +20,9 @@ As a **member of the airport operations staff**, I want to be able to see the oc
 
 | Object | Property | Message | Output |
 | --- | --- | --- | --- |
-| Airport | totalAircraft @Number | getTotalAircraft() | @Number |
-|  | vehicles @Array[@Aircraft] | getVehicles() | @Array[@Aircraft] |
-|  |  | moveAircraftToAirport(@Aircraft) |  |
+| Airport | vehicles @Array[@Aircraft] | getVehicles() | @Array[@Aircraft] |
+|  |  | getTotalVehicles() | @Number |
+|  |  | moveVehicleToAirport(@Aircraft) |  |
 | Aircraft | flightNumber @String | getFlightNumber() | @String |
 |  | airline @String | getAirline() | @String |
 
