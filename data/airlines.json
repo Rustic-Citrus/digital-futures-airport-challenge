@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Skyward Express",
+        "prefix": "SE"
+    },
+    {
+        "name": "Azure Wings Airlines",
+        "prefix": "AW"
+    },
+    {
+        "name": "Orion Air",
+        "prefix": "OA"
+    },
+    {
+        "name": "Celestial Flights",
+        "prefix": "CF"
+    },
+    {
+        "name": "Nebula Airways",
+        "prefix": "NA"
+    }
+]
