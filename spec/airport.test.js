@@ -11,7 +11,7 @@ export function testTotalAircraft() {
     const seedTwo = Math.floor(Math.random() * 900) + 100 // Random three-digit flight number
     const aircraft = new Aircraft(airlines[seedOne].name, `${airlines[seedOne].prefix}${seedTwo}`);
 
-    airport.moveAircraftToAirport(aircraft);
+    airport.moveVehicleToAirport(aircraft);
   }
 
   const actualNumberOfAircraft = airport.getTotalAircraft();
