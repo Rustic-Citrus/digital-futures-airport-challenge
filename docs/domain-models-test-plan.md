@@ -22,10 +22,12 @@ As a **member of the airport operations staff**, I want to be able to see the oc
 | --- | --- | --- | --- |
 | Airport | totalAircraft @Number | getTotalAircraft() | @Number |
 |  | vehicles @Array[@Aircraft] | getVehicles() | @Array[@Aircraft] |
+|  |  | moveAircraftToAirport(@Aircraft) |  |
 | Aircraft | flightNumber @String | getFlightNumber() | @String |
 |  | airline @String | getAirline() | @String |
 
 ### Test Cases
 
+* [ ] The user can move an aircraft to the airport.
 * [ ] The user can retrieve the total number of aircraft that are in the airport.
 * [ ] The same aircraft is not counted more than once.
