@@ -1,8 +1,8 @@
 import Airport from "../src/airport.js";
 import Aircraft from "../src/aircraft.js";
-import airlines from "../data/airlines.json";
+import airlines from "../data/airlines.json" assert { type: "json" };
 
-export default function testTotalAircraft() {
+export function testTotalAircraft() {
   const airport = new Airport();
   const expectedNumberOfAircraft = 15;
 
@@ -22,3 +22,9 @@ export default function testTotalAircraft() {
     console.log("PASS");
   }
 }
+
+const airportTests = [
+  testTotalAircraft
+];
+
+export default airportTests;
