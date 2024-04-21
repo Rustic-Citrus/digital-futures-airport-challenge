@@ -1,6 +1,7 @@
 export default class Airport {
   constructor() {
     this.vehicles = new Array();
+    this.capacity = 10;
   }
 
   moveVehicleToAirport(aircraft) {
@@ -23,5 +24,13 @@ export default class Airport {
     })
 
     return flightNumbers;
+  }
+
+  getCapacity() {
+    return this.capacity;
+  }
+
+  setCapacity(newCapacity) {
+    this.capacity = newCapacity;
   }
 }
