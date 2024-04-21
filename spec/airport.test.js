@@ -8,7 +8,8 @@ function generateRandomAircraft(numOfAircraft) {
   for (let i = 0; i < numOfAircraft; i++) {
     const seedOne = Math.floor(Math.random() * airlines.length);
     const seedTwo = Math.floor(Math.random() * 900) + 100 // Random three-digit flight number
-    const aircraft = new Aircraft(airlines[seedOne].name, `${airlines[seedOne].prefix}${seedTwo}`);
+    const aircraftId = `${airlines[seedOne].prefix}${seedTwo}`;
+    const aircraft = new Aircraft(aircraftId);
 
     aircraftArray.push(aircraft);
   }
@@ -19,21 +20,20 @@ function generateRandomAircraft(numOfAircraft) {
 export function testMoveAircraft() {
   console.log("TEST: The user can move specific aircraft to the airport.");
   const airport = new Airport();
-  
-  const randomAircraft = generateRandomAircraft(2);
-  const expectedAircraftIds = new Array();
+  const expectedAircraftId = "OF815";
+  const aircraft = new Aircraft(expectedAircraftId);
+  airport.moveVehicleToAirport(aircraft);
 
-  randomAircraft.forEach(aircraft => {
-    expectedAircraftIds.push(aircraft.getFlightNumber());
-    airport.moveVehicleToAirport(aircraft);
+  let actualAircraftId = "";
+  const actualAircraftIds = airport.getFlightNumbers();
+  actualAircraftIds.forEach(id => {
+    actualAircraftId = id;
   });
 
-  const actualAircraftIds = airport.getFlightNumbers();
-  
-  if (actualAircraftIds !== expectedAircraftIds) {
-    console.log(`FAIL: Expected flight numbers ${expectedAircraftIds}, but actual flight numbers were ${actualAircraftIds}.`);
-  } else {
+  if (expectedAircraftId === actualAircraftId) {
     console.log("PASS");
+  } else {
+    console.log(`FAIL: Expected flight number of aircraft at airport to be ${expectedAircraftId}, but was actually ${actualAircraftId}`);
   }
 }
 
