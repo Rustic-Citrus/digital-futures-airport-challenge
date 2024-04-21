@@ -87,7 +87,7 @@ As a **hacker/disgruntled employee**, I want to clear planes for landing even wh
 
 | Object | Property | Message | Output |
 | --- | --- | --- | --- |
-| Airport | grounded @Array[@Aircraft] | getGrounded() | @Array[@Aircraft] |
+| Airport | grounded @Array[@Aircraft] | getGroundedAircraft() | @Array[@Aircraft] |
 |  |  | getTotalGrounded() | @Number |
 |  |  | moveAircraftToAirport(@Aircraft) |  |
 |  | capacity @Number | getCapacity() | @Number  |
