@@ -2,6 +2,7 @@ export default class Airport {
   constructor() {
     this.grounded = new Array();
     this.capacity = 10;
+    this.airspace = new Array();
   }
 
   moveAircraftToAirport(aircraft) {
