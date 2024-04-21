@@ -31,6 +31,6 @@ export default class Airport {
   }
 
   setCapacity(newCapacity) {
-    if (newCapacity >= 0) this.capacity = newCapacity;
+    if (newCapacity >= 0 && newCapacity > this.capacity) this.capacity = newCapacity;
   }
 }
