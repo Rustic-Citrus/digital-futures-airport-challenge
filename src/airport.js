@@ -14,4 +14,14 @@ export default class Airport {
     })
     return total;
   }
+
+  getFlightNumbers() {
+    const flightNumbers = new Array();
+
+    this.vehicles.forEach(vehicle => {
+      flightNumbers.push(vehicle.getFlightNumber());
+    })
+
+    return flightNumbers;
+  }
 }
