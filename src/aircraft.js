@@ -6,4 +6,8 @@ export default class Aircraft {
   getFlightNumber() {
     return this.flightNumber;
   }
+
+  enterAirspace(airportWithAirspace) {
+    airportWithAirspace.airspace.push(this);
+  }
 }
