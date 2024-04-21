@@ -4,11 +4,12 @@
 
 **Date Added**: 2024-04-19
 
-**Last Updated**: 2024-04-19
+**Last Updated**: 2024-04-21
 
 ## List of Contents
 
 1. [Total Aircraft](#check-the-total-number-of-aircraft-at-the-airport)
+2. [Override Default Capacity](#override-default-capacity)
 
 ## Check Total Number of Aircraft at the Airport
 
@@ -59,3 +60,53 @@ As a **hacker/disgruntled employee**, I want to be able to increase the default 
 * [X] The user cannot change the capacity of the airport below 0.
 * [X] The user cannot change the capacity of the airport below the number of aircraft currently at the airport.
 * [X] The user cannot change the capacity of the airport above 50.
+
+## Landing an Aircraft at the Airport and Giving Clearance for Landing
+
+### Stories
+
+As a **pilot**, I want to be able to enter the airspace of the airport, so that I can request clearance for landing.
+
+As a **pilot**, I want to be able to land the aircraft I am piloting, so that I can allow my passengers to disembark.
+
+As a **pilot**, I only want to be able to land the plane if the conditions are safe, so that I minimise the risk of an accident.
+
+As a **pilot**, I only want to receive accurate information, so that I can make the effective decisions regarding the aircraft I am piloting.
+
+As an **air traffic controller**, I only want to give clearance for landing to aircraft that are in the air, so that I do not send misleading or confusing messages to pilots.
+
+As a **hacker/disgruntled employee**, I want to give clearance for landing to aircraft when the airport is full, so that I can cause an accident.
+
+As an **air traffic controller**, I do not want to clear a plane for landing when the airport is full, so that airport spaces are not over capacity in a way that causes a hazard.
+
+As an **air traffic controller**, I do not want to clear a plane for landing that is grounded at the airport, so that pilots do not receive confusing information.
+
+As a **hacker/disgruntled employee**, I want to clear planes for landing even when they are grounded, so that I can confuse pilots and increase the risk of accidents.
+
+### Domain Model
+
+| Object | Property | Message | Output |
+| --- | --- | --- | --- |
+| Airport | grounded @Array[@Aircraft] | getGrounded() | @Array[@Aircraft] |
+|  |  | getTotalGrounded() | @Number |
+|  |  | moveAircraftToAirport(@Aircraft) |  |
+|  | capacity @Number | getCapacity() | @Number  |
+|  | | setCapacity(@Number) |  |
+|  | airspace @Array[@Aircraft] | getAircraftInAirspace() | @Array[@Aircraft]  |
+|  | | clearAircraftForLanding(@Aircraft) |  |
+| Aircraft | flightNumber @String | getFlightNumber() | @String |
+|  | airline @String | getAirline() | @String |
+|  | hasLandingClearance @Boolean | checkLandingClearance() | @Boolean |
+|  | status @String | getStatus() | @String |
+|  | | land(@Airport) | |
+|  | | enterAirspace(@Airport) | |
+
+### Test Cases
+
+* [ ] Aircraft can enter the airspace of an airport.
+* [ ] Airports can check the status of aircraft that are grounded or in their airspace.
+* [ ] Aircraft can land at an airport.
+* [ ] Airports can clear aircraft for landing.
+* [ ] Aircraft can only land if they have clearance for landing.
+* [ ] Airports can only clear aircraft for landing if there is at least 1 space at the airport.
+* [ ] Airports can only give an aircraft clearance for landing if the aircraft is not grounded.
