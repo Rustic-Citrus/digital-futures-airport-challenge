@@ -56,9 +56,25 @@ export function testTotalAircraft() {
   }
 }
 
+export function testSetCapacity() {
+  console.log("TEST: The user can change the capacity of the airport.");
+  const airport = new Airport();
+  const expectedCapacity = 15;
+
+  airport.setCapacity(15);
+  const actualCapacity = airport.getCapacity();
+
+  if (actualCapacity !== expectedCapacity) {
+    console.log(`FAIL: Expected capacity to be ${expectedCapacity}, but was actually ${actualCapacity}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const airportTests = [
   testTotalAircraft,
-  testMoveAircraft
+  testMoveAircraft,
+  testSetCapacity
 ];
 
 export default airportTests;
