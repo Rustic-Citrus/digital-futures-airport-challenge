@@ -4,7 +4,7 @@ export default class Airport {
     this.capacity = 10;
   }
 
-  moveVehicleToAirport(aircraft) {
+  moveAircraftToAirport(aircraft) {
     this.grounded.push(aircraft);
   }
 
