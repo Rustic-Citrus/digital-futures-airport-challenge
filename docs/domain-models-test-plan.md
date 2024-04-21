@@ -55,7 +55,7 @@ As a **hacker/disgruntled employee**, I want to be able to increase the default 
 
 ### Test Cases
 
-* [ ] The user can change the capacity of the airport.
+* [X] The user can change the capacity of the airport.
 * [ ] The user cannot change the capacity of the airport below 0.
 * [ ] The user cannot change the capacity of the airport below the number of aircraft currently at the airport.
 * [ ] The user cannot change the capacity of the airport above 50.
