@@ -22,7 +22,7 @@ export function testMoveAircraft() {
   const airport = new Airport();
   const expectedAircraftId = "OF815";
   const aircraft = new Aircraft(expectedAircraftId);
-  airport.moveVehicleToAirport(aircraft);
+  airport.moveAircraftToAirport(aircraft);
 
   let actualAircraftId = "";
   const actualAircraftIds = airport.getFlightNumbers();
@@ -44,10 +44,10 @@ export function testTotalAircraft() {
 
   const randomAircraft = generateRandomAircraft(15);
   randomAircraft.forEach((aircraft) => {
-    airport.moveVehicleToAirport(aircraft);
+    airport.moveAircraftToAirport(aircraft);
   });
 
-  const actualNumberOfAircraft = airport.getTotalVehicles();
+  const actualNumberOfAircraft = airport.getGrounded();
 
   if (actualNumberOfAircraft !== expectedNumberOfAircraft) {
     console.log(`FAIL: Expected ${expectedNumberOfAircraft} aircraft, but actual number was ${actualNumberOfAircraft}.`);
@@ -93,7 +93,7 @@ export function testCapacityNotBelowOccupancy() {
 
   const randomAircraft = generateRandomAircraft(8);
   randomAircraft.forEach(vehicle => {
-    airport.moveVehicleToAirport(vehicle);
+    airport.moveAircraftToAirport(vehicle);
   });
   airport.setCapacity(5);
   const actualCapacity = airport.getCapacity();
