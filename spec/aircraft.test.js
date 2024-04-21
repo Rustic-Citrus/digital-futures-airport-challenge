@@ -5,14 +5,15 @@ export function testAircraftCanEnterAirspace() {
   console.log("TEST: Aircraft can enter the airspace of an airport.");
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
-  const expectedAirspace = [aircraft];
+  const expectedAircraftId = aircraft.getFlightNumber();
 
   aircraft.enterAirspace(airport);
 
-  const actualAirspace = airport.getAircraftInAirspace();
+  const airspace = airport.getAircraftInAirspace();
+  const actualAircraftId = airspace[0].getFlightNumber();
 
-  if (actualAirspace !== expectedAirspace) {
-    console.log(`FAIL: Expected airspace to be ${expectedAirspace}, but was actually ${actualAirspace}.`);
+  if (expectedAircraftId !== actualAircraftId) {
+    console.log(`FAIL: Expected aircraft flight number to be ${expectedAircraftId}, but was actually ${actualAircraftId}.`);
   } else {
     console.log("PASS");
   }
