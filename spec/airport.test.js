@@ -120,13 +120,52 @@ export function testCapacityWithinLimits() {
   }
 }
 
+export function testCheckAircraftStatusGrounded() {
+  console.log("TEST: Airports can check the status of aircraft that are grounded.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  aircraft.land(airport);
+  
+  const expectedStatus = "grounded";
+
+  const grounded = airport.getGrounded();
+  const actualStatus = grounded[0].getStatus();
+
+  if (actualStatus !== expectedStatus) {
+    console.log(`FAIL: Expected status to be ${expectedStatus}, but was actually ${actualStatus}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
+export function testCheckAircraftStatusAirspace() {
+  console.log("TEST: Airports can check the status of aircraft that are in their airspace.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  aircraft.takeOff();
+  aircraft.moveAircraftToAirspace(airport);
+  
+  const expectedStatus = "airborne";
+
+  const airspace = airport.getAircraftInAirspace();
+  const actualStatus = airspace[0].getStatus();
+
+  if (actualStatus !== expectedStatus) {
+    console.log(`FAIL: Expected status to be ${expectedStatus}, but was actually ${actualStatus}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const airportTests = [
   testTotalAircraft,
   testMoveAircraft,
   testSetCapacity,
   testCapacityNotBelowZero,
   testCapacityNotBelowOccupancy,
-  testCapacityWithinLimits
+  testCapacityWithinLimits,
+  testCheckAircraftStatusGrounded,
+  testCheckAircraftStatusAirspace
 ];
 
 export default airportTests;
