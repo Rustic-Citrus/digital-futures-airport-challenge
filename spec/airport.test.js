@@ -16,6 +16,27 @@ function generateRandomAircraft(numOfAircraft) {
   return aircraftArray;
 }
 
+export function testMoveAircraft() {
+  console.log("TEST: The user can move specific aircraft to the airport.");
+  const airport = new Airport();
+  
+  const randomAircraft = generateRandomAircraft(2);
+  const expectedAircraftIds = new Array();
+
+  randomAircraft.forEach(aircraft => {
+    expectedAircraftIds.push(aircraft.getFlightNumber());
+    airport.moveVehicleToAirport(aircraft);
+  });
+
+  const actualAircraftIds = airport.getFlightNumbers();
+  
+  if (actualAircraftIds !== expectedAircraftIds) {
+    console.log(`FAIL: Expected flight numbers ${expectedAircraftIds}, but actual flight numbers were ${actualAircraftIds}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 export function testTotalAircraft() {
   console.log("TEST: The user can retrieve the total number of aircraft that are in the airport.");
   const airport = new Airport();
@@ -36,7 +57,8 @@ export function testTotalAircraft() {
 }
 
 const airportTests = [
-  testTotalAircraft
+  testTotalAircraft,
+  testMoveAircraft
 ];
 
 export default airportTests;
