@@ -217,6 +217,24 @@ function testAircraftMustBeAirborneForLandingClearance() {
   }
 }
 
+function testAircraftMustBeGroundedForTakeOffClearance() {
+  console.log("TEST: Airports can only clear aircraft for take off if they are grounded.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  const expectedClearance = false;
+
+  aircraft.enterAirspace(airport);
+  airport.clearAircraftForTakeOff(aircraft);
+  
+  const actualClearance = aircraft.hasTakeOffClearance();
+
+  if (actualClearance !== expectedClearance) {
+    console.log(`FAIL: Expected aircraft take-off clearance to be ${expectedClearance}, but was actually ${actualClearance}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const airportTests = [
   testTotalAircraft,
   testMoveAircraft,
@@ -228,7 +246,8 @@ const airportTests = [
   testCheckAircraftStatusAirspace,
   testClearAircraftForLanding,
   testAirportHasSpaceBeforeLandingClearance,
-  testAircraftMustBeAirborneForLandingClearance
+  testAircraftMustBeAirborneForLandingClearance,
+  testAircraftMustBeGroundedForTakeOffClearance
 ];
 
 export default airportTests;
