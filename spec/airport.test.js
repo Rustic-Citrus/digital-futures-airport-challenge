@@ -142,7 +142,7 @@ export function testCheckAircraftStatusAirspace() {
   console.log("TEST: Airports can check the status of aircraft that are in their airspace.");
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
-  aircraft.takeOff();
+  aircraft.takeOff(airport);
   aircraft.moveAircraftToAirspace(airport);
   
   const expectedStatus = "airborne";
