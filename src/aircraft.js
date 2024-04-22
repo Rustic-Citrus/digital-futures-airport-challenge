@@ -3,6 +3,7 @@ export default class Aircraft {
     this.flightNumber = flightNumber;
     this.status = "unknown";
     this.hasLandingClearance = false;
+    this.hasTakeOffClearance = false;
   }
 
   getFlightNumber() {
@@ -32,5 +33,9 @@ export default class Aircraft {
 
   checkLandingClearance() {
     return this.hasLandingClearance;
+  }
+
+  checkTakeOffClearance() {
+    return this.hasTakeOffClearance;
   }
 }
