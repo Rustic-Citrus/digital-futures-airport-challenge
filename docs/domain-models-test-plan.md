@@ -4,12 +4,24 @@
 
 **Date Added**: 2024-04-19
 
-**Last Updated**: 2024-04-21
+**Last Updated**: 2024-04-22
 
 ## List of Contents
 
-1. [Total Aircraft](#check-the-total-number-of-aircraft-at-the-airport)
-2. [Override Default Capacity](#override-default-capacity)
+- [Domain Models and Test Plan](#domain-models-and-test-plan)
+  - [List of Contents](#list-of-contents)
+  - [Check Total Number of Aircraft at the Airport](#check-total-number-of-aircraft-at-the-airport)
+    - [Story](#story)
+    - [Domain Model](#domain-model)
+    - [Test Cases](#test-cases)
+  - [Override Default Capacity](#override-default-capacity)
+    - [Stories](#stories)
+    - [Domain Model](#domain-model-1)
+    - [Test Cases](#test-cases-1)
+  - [Landing an Aircraft at the Airport and Giving Clearance for Landing](#landing-an-aircraft-at-the-airport-and-giving-clearance-for-landing)
+    - [Stories](#stories-1)
+    - [Domain Model](#domain-model-2)
+    - [Test Cases](#test-cases-2)
 
 ## Check Total Number of Aircraft at the Airport
 
@@ -105,7 +117,7 @@ As a **hacker/disgruntled employee**, I want to clear planes for landing even wh
 
 * [X] Aircraft can enter the airspace of an airport.
 * [X] Airports can check the status of aircraft that are grounded or in their airspace.
-* [ ] Aircraft can land at an airport.
+* [X] Aircraft can land at an airport.
 * [ ] Airports can clear aircraft for landing.
 * [ ] Aircraft can only land if they have clearance for landing.
 * [ ] Airports can only clear aircraft for landing if there is at least 1 space at the airport.
