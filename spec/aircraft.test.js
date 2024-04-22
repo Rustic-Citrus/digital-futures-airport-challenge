@@ -60,10 +60,29 @@ function testClearanceRequiredForLanding() {
   }
 }
 
+function testCanTakeOff() {
+  console.log("TEST: Aircraft can take off from an airport if they have clearance and are grounded.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  const expectedGroundedLength = 0;
+
+  airport.moveAircraftToAirport(aircraft);
+  airport.clearAircraftForTakeOff(aircraft);
+  aircraft.takeOff(airport);
+  const actualGroundedLength = airport.getGrounded().length
+
+  if (actualGroundedLength != expectedGroundedLength) {
+    console.log(`FAIL: Expected length of grounded array to be ${expectedGroundedLength}, but was actually ${actualGroundedLength}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const aircraftTests = [
   testAircraftCanEnterAirspace,
   testLandAtAirport,
-  testClearanceRequiredForLanding
+  testClearanceRequiredForLanding,
+  testCanTakeOff
 ];
 
 export default aircraftTests;
