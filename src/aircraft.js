@@ -19,7 +19,7 @@ export default class Aircraft {
 
   land(designatedAirport) {
     this.status = "grounded";
-    designatedAirport.moveAircraftToAirport(this);
+    this.checkLandingClearance() ? designatedAirport.moveAircraftToAirport(this) : console.error(`ERROR: ${this.getFlightNumber()} does not have clearance to land.`);
   }
 
   takeOff(designatedAirport) {
