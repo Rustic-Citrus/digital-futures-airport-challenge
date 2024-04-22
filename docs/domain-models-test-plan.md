@@ -158,5 +158,5 @@ As a **hacker/disgruntled employee**, I want to be able to clear planes for take
 
 ### Test Cases
 
-* [ ] Airports can only clear aircraft for take off if they are grounded.
+* [X] Airports can only clear aircraft for take off if they are grounded.
 * [ ] Aircraft can take off from an airport if they have clearance and are grounded.
