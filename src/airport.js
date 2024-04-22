@@ -42,4 +42,8 @@ export default class Airport {
   getGrounded() {
     return this.grounded;
   }
+
+  clearAircraftForLanding(aircraftToClear) {
+    aircraftToClear.hasLandingClearance = true;
+  }
 }
