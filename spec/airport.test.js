@@ -175,6 +175,28 @@ function testClearAircraftForLanding() {
   }
 }
 
+function testAirportHasSpaceBeforeLandingClearance() {
+  console.log("TEST: Airports can only clear aircraft for landing if there is at least 1 space at the airport.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  const expectedGroundedLength = 10;
+
+  const randomAircraft = generateRandomAircraft(10);
+  randomAircraft.forEach(vehicle => {
+    airport.moveAircraftToAirport(vehicle);
+  })
+  airport.clearAircraftForLanding(aircraft);
+  aircraft.land(airport);
+  
+  const actualGroundedLength = airport.getGrounded().length;
+
+  if (actualGroundedLength !== expectedGroundedLength) {
+    console.log(`FAIL: Expected number of grounded aircraft to be ${expectedGroundedLength}, but was actually ${actualGroundedLength}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const airportTests = [
   testTotalAircraft,
   testMoveAircraft,
@@ -184,7 +206,8 @@ const airportTests = [
   testCapacityWithinLimits,
   testCheckAircraftStatusGrounded,
   testCheckAircraftStatusAirspace,
-  testClearAircraftForLanding
+  testClearAircraftForLanding,
+  testAirportHasSpaceBeforeLandingClearance
 ];
 
 export default airportTests;
