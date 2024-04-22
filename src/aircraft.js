@@ -12,6 +12,10 @@ export default class Aircraft {
     airportWithAirspace.airspace.push(this);
   }
 
+  getStatus() {
+    return this.status;
+  }
+
   land() {
     this.status = "grounded";
   }
