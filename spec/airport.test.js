@@ -157,6 +157,23 @@ function testCheckAircraftStatusAirspace() {
   }
 }
 
+function testClearAircraftForLanding() {
+  console.log("TEST: Airports can clear aircraft for landing.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  const expectedClearance = true;
+
+  airport.clearAircraftForLanding(aircraft);
+
+  const actualClearance = aircraft.checkLandingClearance();
+
+  if (actualClearance !== expectedClearance) {
+    console.log(`FAIL: Expected clearance to be ${expectedClearance}, but was actually ${actualClearance}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const airportTests = [
   testTotalAircraft,
   testMoveAircraft,
@@ -165,7 +182,8 @@ const airportTests = [
   testCapacityNotBelowOccupancy,
   testCapacityWithinLimits,
   testCheckAircraftStatusGrounded,
-  testCheckAircraftStatusAirspace
+  testCheckAircraftStatusAirspace,
+  testClearAircraftForLanding
 ];
 
 export default airportTests;
