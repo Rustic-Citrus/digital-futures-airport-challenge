@@ -10,6 +10,7 @@ export default class Aircraft {
   }
 
   enterAirspace(airportWithAirspace) {
+    this.status = "airborne";
     airportWithAirspace.airspace.push(this);
   }
 
