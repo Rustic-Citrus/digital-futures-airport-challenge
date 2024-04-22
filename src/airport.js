@@ -52,4 +52,12 @@ export default class Airport {
       console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not airborne.`)
     }
   }
+
+  clearAircraftForTakeOff(aircraftToClear) {
+    if (aircraftToClear.getStatus() === "grounded") {
+      aircraftToClear.checkTakeOffClearance() = true;
+    } else {
+      console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not grounded.`)
+    }
+  }
 }
