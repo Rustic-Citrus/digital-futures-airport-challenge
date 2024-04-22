@@ -27,4 +27,8 @@ export default class Aircraft {
       if (designatedAirport.grounded[i].getFlightNumber() === this.getFlightNumber()) designatedAirport.moveFromGroundedToAirspace(grounded[i]);
     }
   }
+
+  checkLandingClearance() {
+    return this.hasLandingClearance;
+  }
 }
