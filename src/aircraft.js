@@ -16,7 +16,8 @@ export default class Aircraft {
     return this.status;
   }
 
-  land() {
+  land(designatedAirport) {
     this.status = "grounded";
+    designatedAirport.moveAircraftToAirport(this);
   }
 }
