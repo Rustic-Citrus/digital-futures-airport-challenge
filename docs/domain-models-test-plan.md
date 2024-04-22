@@ -104,7 +104,7 @@ As a **hacker/disgruntled employee**, I want to clear planes for landing even wh
 ### Test Cases
 
 * [X] Aircraft can enter the airspace of an airport.
-* [ ] Airports can check the status of aircraft that are grounded or in their airspace.
+* [X] Airports can check the status of aircraft that are grounded or in their airspace.
 * [ ] Aircraft can land at an airport.
 * [ ] Airports can clear aircraft for landing.
 * [ ] Aircraft can only land if they have clearance for landing.
