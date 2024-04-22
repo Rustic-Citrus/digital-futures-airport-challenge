@@ -143,7 +143,7 @@ export function testCheckAircraftStatusAirspace() {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   aircraft.takeOff(airport);
-  aircraft.moveAircraftToAirspace(airport);
+  aircraft.enterAirspace(airport);
   
   const expectedStatus = "airborne";
 
