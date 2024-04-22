@@ -1,7 +1,7 @@
 import Airport from "../src/Airport.js";
 import Aircraft from "../src/Aircraft.js";
 
-export function testAircraftCanEnterAirspace() {
+function testAircraftCanEnterAirspace() {
   console.log("TEST: Aircraft can enter the airspace of an airport.");
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
@@ -19,8 +19,31 @@ export function testAircraftCanEnterAirspace() {
   }
 }
 
+function testLandAtAirport() {
+  console.log("TEST: Aircraft can land at an airport.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  const expectedAircraftId = aircraft.getFlightNumber();
+
+  aircraft.land(airport);
+
+  const grounded = airport.getGrounded();
+  let actualAircraftId = "";
+
+  for (const vehicle of grounded) {
+    actualAircraftId = vehicle.getFlightNumber();
+    if (actualAircraftId === expectedAircraftId) {
+      console.log("PASS");
+      break;
+    }
+  }
+  
+  if (actualAircraftId != expectedAircraftId) console.log(`FAIL: Expected aircraft flight number to be ${expectedAircraftId}, but was actually ${actualAircraftId}.`);
+}
+
 const aircraftTests = [
-  testAircraftCanEnterAirspace
+  testAircraftCanEnterAirspace,
+  testLandAtAirport
 ];
 
 export default aircraftTests;
