@@ -47,7 +47,7 @@ export function testTotalAircraft() {
     airport.moveAircraftToAirport(aircraft);
   });
 
-  const actualNumberOfAircraft = airport.getGrounded();
+  const actualNumberOfAircraft = airport.getTotalGrounded();
 
   if (actualNumberOfAircraft !== expectedNumberOfAircraft) {
     console.log(`FAIL: Expected ${expectedNumberOfAircraft} aircraft, but actual number was ${actualNumberOfAircraft}.`);
