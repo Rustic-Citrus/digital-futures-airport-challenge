@@ -6,6 +6,7 @@ export default class Airport {
   }
 
   moveAircraftToAirport(aircraft) {
+    aircraft.status = "grounded";
     this.grounded.push(aircraft);
   }
 
