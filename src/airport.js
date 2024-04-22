@@ -44,10 +44,12 @@ export default class Airport {
   }
 
   clearAircraftForLanding(aircraftToClear) {
-    if (this.capacity > this.grounded.length) {
+    if (this.capacity > this.grounded.length && aircraftToClear.getStatus() === "airborne") {
       aircraftToClear.hasLandingClearance = true;
-    } else {
+    } else if (this.capacity <= this.grounded.length) {
       console.error("ERROR: Insufficient space at airport.");
+    } else if (aircraftToClear.getStatus() != "airborne") {
+      console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not airborne.`)
     }
   }
 }
