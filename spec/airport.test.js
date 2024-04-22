@@ -1,5 +1,5 @@
-import Airport from "../src/airport.js";
-import Aircraft from "../src/aircraft.js";
+import Airport from "../src/Airport.js";
+import Aircraft from "../src/Aircraft.js";
 import airlines from "../data/airlines.json" assert { type: "json" };
 
 function generateRandomAircraft(numOfAircraft) {

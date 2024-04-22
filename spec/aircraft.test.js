@@ -1,5 +1,5 @@
-import Airport from "../src/airport.js";
-import Aircraft from "../src/aircraft.js";
+import Airport from "../src/Airport.js";
+import Aircraft from "../src/Aircraft.js";
 
 export function testAircraftCanEnterAirspace() {
   console.log("TEST: Aircraft can enter the airspace of an airport.");
