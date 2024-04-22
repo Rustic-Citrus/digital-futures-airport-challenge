@@ -22,6 +22,10 @@
     - [Stories](#stories-1)
     - [Domain Model](#domain-model-2)
     - [Test Cases](#test-cases-2)
+  - [Take Off](#take-off)
+    - [User Stories](#user-stories)
+    - [Domain Model](#domain-model-3)
+    - [Test Cases](#test-cases-3)
 
 ## Check Total Number of Aircraft at the Airport
 
@@ -122,3 +126,37 @@ As a **hacker/disgruntled employee**, I want to clear planes for landing even wh
 * [X] Aircraft can only land if they have clearance for landing.
 * [X] Airports can only clear aircraft for landing if there is at least 1 space at the airport.
 * [X] Airports can only give an aircraft clearance for landing if the aircraft is not grounded.
+
+## Take Off
+
+### User Stories
+
+As an **air traffic controller**, I only want to be able to clear planes for take off that are on the ground at the airport.
+
+As a **hacker/disgruntled employee**, I want to be able to clear planes for take off that are in the air, so that pilots are potentially confused and, therefore, increasing the risk of accidents.
+
+### Domain Model
+
+| Object | Property | Message | Output |
+| --- | --- | --- | --- |
+| Airport | grounded @Array[@Aircraft] | getGroundedAircraft() | @Array[@Aircraft] |
+|  |  | getTotalGrounded() | @Number |
+|  |  | moveAircraftToAirport(@Aircraft) |  |
+|  | capacity @Number | getCapacity() | @Number  |
+|  | | setCapacity(@Number) |  |
+|  | airspace @Array[@Aircraft] | getAircraftInAirspace() | @Array[@Aircraft]  |
+|  | | clearAircraftForLanding(@Aircraft) |  |
+|  | | clearAircraftForTakeOff(@Aircraft) | |
+| Aircraft | flightNumber @String | getFlightNumber() | @String |
+|  | airline @String | getAirline() | @String |
+|  | hasLandingClearance @Boolean | checkLandingClearance() | @Boolean |
+|  | status @String | getStatus() | @String |
+|  | | land(@Airport) | |
+|  | | enterAirspace(@Airport) | |
+|  | | takeOff(@Airport) | |
+|  | hasTakeOffClearance @Boolean | checkTakeOffClearance() | @Boolean |
+
+### Test Cases
+
+* [ ] Airports can only clear aircraft for take off if they are grounded.
+* [ ] Aircraft can take off from an airport if they have clearance and are grounded.
