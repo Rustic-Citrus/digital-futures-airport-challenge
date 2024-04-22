@@ -2,6 +2,7 @@ export default class Aircraft {
   constructor(flightNumber) {
     this.flightNumber = flightNumber;
     this.status = "unknown";
+    this.hasLandingClearance = false;
   }
 
   getFlightNumber() {
