@@ -9,7 +9,7 @@ export default class Airport {
     this.grounded.push(aircraft);
   }
 
-  getGrounded() {
+  getTotalGrounded() {
     let total = 0;
     this.grounded.forEach(() => {
       total += 1;
@@ -37,5 +37,9 @@ export default class Airport {
 
   getAircraftInAirspace() {
     return this.airspace;
+  }
+
+  getGrounded() {
+    return this.grounded;
   }
 }
