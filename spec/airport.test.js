@@ -17,7 +17,7 @@ function generateRandomAircraft(numOfAircraft) {
   return aircraftArray;
 }
 
-export function testMoveAircraft() {
+function testMoveAircraft() {
   console.log("TEST: The user can move specific aircraft to the airport.");
   const airport = new Airport();
   const expectedAircraftId = "OF815";
@@ -37,7 +37,7 @@ export function testMoveAircraft() {
   }
 }
 
-export function testTotalAircraft() {
+function testTotalAircraft() {
   console.log("TEST: The user can retrieve the total number of aircraft that are in the airport.");
   const airport = new Airport();
   const expectedNumberOfAircraft = 15;
@@ -56,7 +56,7 @@ export function testTotalAircraft() {
   }
 }
 
-export function testSetCapacity() {
+function testSetCapacity() {
   console.log("TEST: The user can change the capacity of the airport.");
   const airport = new Airport();
   const expectedCapacity = 15;
@@ -71,7 +71,7 @@ export function testSetCapacity() {
   }
 }
 
-export function testCapacityNotBelowZero() {
+function testCapacityNotBelowZero() {
   console.log("TEST: The user cannot change the capacity of the airport below 0.");
   const airport = new Airport();
   const expectedCapacity = 10;
@@ -86,7 +86,7 @@ export function testCapacityNotBelowZero() {
   }
 }
 
-export function testCapacityNotBelowOccupancy() {
+function testCapacityNotBelowOccupancy() {
   console.log("TEST: The user cannot change the capacity of the airport below the number of aircraft currently at the airport.");
   const airport = new Airport();
   const expectedCapacity = 10;
@@ -105,7 +105,7 @@ export function testCapacityNotBelowOccupancy() {
   }
 }
 
-export function testCapacityWithinLimits() {
+function testCapacityWithinLimits() {
   console.log("TEST: The user cannot change the capacity of the airport above 50.");
   const airport = new Airport();
   const expectedCapacity = 10;
@@ -120,7 +120,7 @@ export function testCapacityWithinLimits() {
   }
 }
 
-export function testCheckAircraftStatusGrounded() {
+function testCheckAircraftStatusGrounded() {
   console.log("TEST: Airports can check the status of aircraft that are grounded.");
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
@@ -138,7 +138,7 @@ export function testCheckAircraftStatusGrounded() {
   }
 }
 
-export function testCheckAircraftStatusAirspace() {
+function testCheckAircraftStatusAirspace() {
   console.log("TEST: Airports can check the status of aircraft that are in their airspace.");
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
