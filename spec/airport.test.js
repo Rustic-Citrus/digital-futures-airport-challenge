@@ -226,7 +226,7 @@ function testAircraftMustBeGroundedForTakeOffClearance() {
   aircraft.enterAirspace(airport);
   airport.clearAircraftForTakeOff(aircraft);
   
-  const actualClearance = aircraft.hasTakeOffClearance();
+  const actualClearance = aircraft.checkTakeOffClearance();
 
   if (actualClearance !== expectedClearance) {
     console.log(`FAIL: Expected aircraft take-off clearance to be ${expectedClearance}, but was actually ${actualClearance}.`);
