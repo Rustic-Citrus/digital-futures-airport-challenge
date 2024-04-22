@@ -120,5 +120,5 @@ As a **hacker/disgruntled employee**, I want to clear planes for landing even wh
 * [X] Aircraft can land at an airport.
 * [X] Airports can clear aircraft for landing.
 * [X] Aircraft can only land if they have clearance for landing.
-* [ ] Airports can only clear aircraft for landing if there is at least 1 space at the airport.
+* [X] Airports can only clear aircraft for landing if there is at least 1 space at the airport.
 * [ ] Airports can only give an aircraft clearance for landing if the aircraft is not grounded.
