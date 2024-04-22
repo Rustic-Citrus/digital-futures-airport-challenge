@@ -41,9 +41,27 @@ function testLandAtAirport() {
   if (actualAircraftId != expectedAircraftId) console.log(`FAIL: Expected aircraft flight number to be ${expectedAircraftId}, but was actually ${actualAircraftId}.`);
 }
 
+function testClearanceRequiredForLanding() {
+  console.log("TEST: Aircraft can only land if they have clearance for landing.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  const expectedGroundedLength = 0;
+
+  aircraft.land(airport);
+
+  const actualGroundedLength = airport.getGrounded().length;
+
+  if (actualGroundedLength != expectedGroundedLength) {
+    console.log(`FAIL: Expected length of grounded array to be ${expectedGroundedLength}, but was actually ${actualGroundedLength}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const aircraftTests = [
   testAircraftCanEnterAirspace,
-  testLandAtAirport
+  testLandAtAirport,
+  testClearanceRequiredForLanding
 ];
 
 export default aircraftTests;
