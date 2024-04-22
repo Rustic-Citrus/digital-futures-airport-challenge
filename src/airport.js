@@ -44,6 +44,10 @@ export default class Airport {
   }
 
   clearAircraftForLanding(aircraftToClear) {
-    aircraftToClear.hasLandingClearance = true;
+    if (this.capacity > this.grounded.length) {
+      aircraftToClear.hasLandingClearance = true;
+    } else {
+      console.error("ERROR: Insufficient space at airport.");
+    }
   }
 }
