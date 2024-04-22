@@ -124,6 +124,7 @@ function testCheckAircraftStatusGrounded() {
   console.log("TEST: Airports can check the status of aircraft that are grounded.");
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
+  airport.clearAircraftForLanding(aircraft);
   aircraft.land(airport);
   
   const expectedStatus = "grounded";

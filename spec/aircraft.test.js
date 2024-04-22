@@ -25,6 +25,7 @@ function testLandAtAirport() {
   const aircraft = new Aircraft("OA815");
   const expectedAircraftId = aircraft.getFlightNumber();
 
+  airport.clearAircraftForLanding(aircraft);
   aircraft.land(airport);
 
   const grounded = airport.getGrounded();
