@@ -197,6 +197,24 @@ function testAirportHasSpaceBeforeLandingClearance() {
   }
 }
 
+function testAircraftMustBeAirborneForLandingClearance() {
+  console.log("TEST: Airports can only give an aircraft clearance for landing if the aircraft is not grounded.");
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  const expectedLandingClearance = false;
+
+  airport.moveAircraftToAirport(aircraft);
+  airport.clearAircraftForLanding(aircraft);
+
+  const actualLandingClearance = aircraft.checkLandingClearance();
+
+  if (actualLandingClearance !== expectedLandingClearance) {
+    console.log(`FAIL: Expected aircraft landing clearance to be ${expectedLandingClearance}, but was actually ${actualLandingClearance}.`);
+  } else {
+    console.log("PASS");
+  }
+}
+
 const airportTests = [
   testTotalAircraft,
   testMoveAircraft,
@@ -207,7 +225,8 @@ const airportTests = [
   testCheckAircraftStatusGrounded,
   testCheckAircraftStatusAirspace,
   testClearAircraftForLanding,
-  testAirportHasSpaceBeforeLandingClearance
+  testAirportHasSpaceBeforeLandingClearance,
+  testAircraftMustBeAirborneForLandingClearance
 ];
 
 export default airportTests;
