@@ -222,4 +222,18 @@ airportTestSuite.addTest("Airports cannot give clearance to land if the weather 
   airportTestSuite.assertEquals(actualClearance, expectedClearance);
 });
 
+airportTestSuite.addTest("Airports cannot give clearance to take off if the weather is stormy.", () => {
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  airport.moveAircraftToAirport(aircraft);
+  const expectedClearance = false;
+
+  airport.weatherIsStormy();
+  airport.clearAircraftForTakeOff(aircraft);
+
+  const actualClearance = aircraft.checkTakeOffClearance();
+
+  airportTestSuite.assertEquals(actualClearance, expectedClearance);
+});
+
 export default airportTestSuite;
