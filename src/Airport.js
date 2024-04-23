@@ -58,10 +58,12 @@ export default class Airport {
   }
 
   clearAircraftForTakeOff(aircraftToClear) {
-    if (aircraftToClear.getStatus() === "grounded") {
+    if (aircraftToClear.getStatus() === "grounded" && this.weather != "stormy") {
       aircraftToClear.hasTakeOffClearance = true;
-    } else {
+    } else if (aircraftToClear.getStatus() != "grounded") {
       console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not grounded.`)
+    } else if (this.weather === "stormy") {
+      console.error("ERROR: Current weather conditions prevent a safe take-off.")
     }
   }
 
