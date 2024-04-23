@@ -182,7 +182,7 @@ airportTestSuite.addTest("All aircraft have their clearance to take off revoked 
 
   let actualAircraftWithClearance = 0;
   airport.grounded.forEach((vehicle) => {
-    if (vehicle.hasTakeOffClearance()) actualAircraftWithClearance++;
+    if (vehicle.checkTakeOffClearance()) actualAircraftWithClearance++;
   })
 
   airportTestSuite.assertEquals(actualAircraftWithClearance, expectedAircraftWithClearance);
