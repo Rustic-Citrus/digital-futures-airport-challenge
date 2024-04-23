@@ -78,4 +78,8 @@ export default class Airport {
   weatherIsFine() {
     this.weather = "fine";
   }
+
+  revokeTakeOffClearance(designatedAircraft) {
+    designatedAircraft.hasTakeOffClearance = false;
+  }
 }
