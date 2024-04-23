@@ -1,12 +1,9 @@
-import airportTests from "./spec/airport.test.js";
+import airportTestSuite from "./spec/airport.test.js";
 import aircraftTests from "./spec/aircraft.test.js";
 
 console.log("=== AIRPORT CLASS TESTS ===");
 
-airportTests.forEach((test, i) => {
-  console.log(`=== TEST #${i + 1} ===`);
-  test();
-});
+airportTestSuite.runTests();
 
 console.log("=== AIRCRAFT CLASS TESTS ===")
 
