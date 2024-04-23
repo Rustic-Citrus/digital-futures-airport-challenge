@@ -3,6 +3,7 @@ export default class Airport {
     this.grounded = new Array();
     this.capacity = 10;
     this.airspace = new Array();
+    this.weather = "";
   }
 
   moveAircraftToAirport(aircraft) {
@@ -60,5 +61,21 @@ export default class Airport {
     } else {
       console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not grounded.`)
     }
+  }
+
+  checkWeather() {
+    if (this.weather === "story") {
+      for (const vehicle of this.grounded) {
+        if (vehicle.hasTakeOffClearance) vehicle.revokeTakeOffClearance();
+      }
+    }
+  }
+
+  weatherIsStormy() {
+    this.weather = "stormy";
+  }
+
+  weatherIsFine() {
+    this.weather = "fine";
   }
 }
