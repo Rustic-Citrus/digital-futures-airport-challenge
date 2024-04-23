@@ -25,9 +25,15 @@ export default class Aircraft {
   }
 
   takeOff(designatedAirport) {
-    this.status = "airborne";
-    for (let i = 0; i < designatedAirport.grounded; i++) {
-      if (designatedAirport.grounded[i].getFlightNumber() === this.getFlightNumber()) designatedAirport.moveFromGroundedToAirspace(grounded[i]);
+    if (this.checkTakeOffClearance() && this.status === "grounded") {
+      for (let i = 0; i < designatedAirport.grounded.length; i++) {
+        if (designatedAirport.grounded[i].getFlightNumber() === this.getFlightNumber()) {
+          designatedAirport.grounded.splice(i, 1);
+          break;
+        }
+      }
+      this.status = "airborne";
+      this.enterAirspace(designatedAirport);
     }
   }
 
