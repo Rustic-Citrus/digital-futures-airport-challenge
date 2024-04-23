@@ -1,8 +1,10 @@
 import Airport from "../src/Airport.js";
 import Aircraft from "../src/Aircraft.js";
+import TestFramework from "../spec/TestFramework.js";
 
-function testAircraftCanEnterAirspace() {
-  console.log("TEST: Aircraft can enter the airspace of an airport.");
+const aircraftTestSuite = new TestFramework();
+
+aircraftTestSuite.addTest("Valid aircraft can enter the airspace of an airport.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedAircraftId = aircraft.getFlightNumber();
@@ -12,15 +14,10 @@ function testAircraftCanEnterAirspace() {
   const airspace = airport.getAircraftInAirspace();
   const actualAircraftId = airspace[0].getFlightNumber();
 
-  if (expectedAircraftId !== actualAircraftId) {
-    console.log(`FAIL: Expected aircraft flight number to be ${expectedAircraftId}, but was actually ${actualAircraftId}.`);
-  } else {
-    console.log("PASS");
-  }
-}
+  aircraftTestSuite.assertEquals(actualAircraftId, expectedAircraftId);
+});
 
-function testLandAtAirport() {
-  console.log("TEST: Aircraft can land at an airport.");
+aircraftTestSuite.addTest("Valid aircraft can land at an airport.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedAircraftId = aircraft.getFlightNumber();
@@ -34,17 +31,13 @@ function testLandAtAirport() {
 
   for (const vehicle of grounded) {
     actualAircraftId = vehicle.getFlightNumber();
-    if (actualAircraftId === expectedAircraftId) {
-      console.log("PASS");
-      break;
-    }
+    if (actualAircraftId === expectedAircraftId) break;
   }
-  
-  if (actualAircraftId != expectedAircraftId) console.log(`FAIL: Expected aircraft flight number to be ${expectedAircraftId}, but was actually ${actualAircraftId}.`);
-}
 
-function testClearanceRequiredForLanding() {
-  console.log("TEST: Aircraft can only land if they have clearance for landing.");
+  aircraftTestSuite.assertEquals(actualAircraftId, expectedAircraftId);
+});
+
+aircraftTestSuite.addTest("Aircraft can only land if they have clearance for landing.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedGroundedLength = 0;
@@ -53,15 +46,10 @@ function testClearanceRequiredForLanding() {
 
   const actualGroundedLength = airport.getGrounded().length;
 
-  if (actualGroundedLength != expectedGroundedLength) {
-    console.log(`FAIL: Expected length of grounded array to be ${expectedGroundedLength}, but was actually ${actualGroundedLength}.`);
-  } else {
-    console.log("PASS");
-  }
-}
+  aircraftTestSuite.assertEquals(actualGroundedLength, expectedGroundedLength);
+});
 
-function testCanTakeOff() {
-  console.log("TEST: Aircraft can take off from an airport if they have clearance and are grounded.");
+aircraftTestSuite.addTest("Valid aircraft can take off from an airport.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedGroundedLength = 0;
@@ -71,18 +59,7 @@ function testCanTakeOff() {
   aircraft.takeOff(airport);
   const actualGroundedLength = airport.getGrounded().length
 
-  if (actualGroundedLength != expectedGroundedLength) {
-    console.log(`FAIL: Expected length of grounded array to be ${expectedGroundedLength}, but was actually ${actualGroundedLength}.`);
-  } else {
-    console.log("PASS");
-  }
-}
+  aircraftTestSuite.assertEquals(actualGroundedLength, expectedGroundedLength);
+});
 
-const aircraftTests = [
-  testAircraftCanEnterAirspace,
-  testLandAtAirport,
-  testClearanceRequiredForLanding,
-  testCanTakeOff
-];
-
-export default aircraftTests;
+export default aircraftTestSuite;
