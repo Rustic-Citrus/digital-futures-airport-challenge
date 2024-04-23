@@ -14,13 +14,13 @@ export default class TestFramework {
   }
 
   runTests() {
-    this.tests.forEach((test) => {
+    this.tests.forEach((test, i) => {
       try {
         test.testFunction();
-        console.log(`PASS: ${description}`);
+        console.log(`TEST #${i}: PASS - ${test.description}`);
         this.passed++;
       } catch (error) {
-        console.log(`FAIL: ${description}`);
+        console.log(`TEST #${i}: FAIL - ${test.description}`);
         console.log(`ERROR: ${error.message}`);
         this.failed++;
       }
@@ -29,8 +29,10 @@ export default class TestFramework {
   }
 
   summariseResults() {
+    console.log("=== SUMMARY ===");
     console.log(`Number of Tests: ${this.tests.length}`);
     console.log(`Tests Passed: ${this.passed}`);
     console.log(`Tests Failed: ${this.failed}`);
+    console.log("=== END ===");
   }
 }
