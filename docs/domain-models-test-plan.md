@@ -4,7 +4,7 @@
 
 **Date Added**: 2024-04-19
 
-**Last Updated**: 2024-04-22
+**Last Updated**: 2024-04-23
 
 ## List of Contents
 
@@ -125,11 +125,11 @@ As a **hacker/disgruntled employee**, I want to clear planes for landing even wh
 
 * [X] Aircraft can enter the airspace of an airport.
 * [X] Airports can check the status of aircraft that are grounded or in their airspace.
-* [X] Aircraft can land at an airport.
-* [X] Airports can clear aircraft for landing.
-* [X] Aircraft can only land if they have clearance for landing.
-* [X] Airports can only clear aircraft for landing if there is at least 1 space at the airport.
-* [X] Airports can only give an aircraft clearance for landing if the aircraft is not grounded.
+* [X] A valid aircraft can land at an airport.
+* [X] Airports can clear valid aircraft for landing.
+* [X] An aircraft cannot land if it does not have clearance.
+* [X] Airports cannot clear aircraft for landing if the capacity of the airport is full.
+* [X] Airports cannot clear aircraft for landing if the aircraft is not grounded.
 
 ## Take Off
 
@@ -162,8 +162,8 @@ As a **hacker/disgruntled employee**, I want to be able to clear planes for take
 
 ### Test Cases
 
-* [X] Airports can only clear aircraft for take off if they are grounded.
-* [X] Aircraft can take off from an airport if they have clearance and are grounded.
+* [X] Airports cannot clear aircraft for take off if the aircraft is not airborne.
+* [X] Valid aircraft can take off from an airport.
 
 ## Cannot Give Clearance If Weather is Stormy
 
@@ -199,5 +199,5 @@ As a **hacker/disgruntled employee**, I want to be able to override the feature 
 
 ### Test Cases
 
-* [ ] All aircraft should have their clearance to take off revoked if a weather check returns "stormy".
+* [ ] All aircraft have their clearance to take off revoked if a weather check returns "stormy".
 * [ ] Airports cannot give clearance to land if a weather check returns "stormy".

@@ -17,7 +17,7 @@ aircraftTestSuite.addTest("Valid aircraft can enter the airspace of an airport."
   aircraftTestSuite.assertEquals(actualAircraftId, expectedAircraftId);
 });
 
-aircraftTestSuite.addTest("Valid aircraft can land at an airport.", () => {
+aircraftTestSuite.addTest("A valid aircraft can land at an airport", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedAircraftId = aircraft.getFlightNumber();
@@ -37,7 +37,7 @@ aircraftTestSuite.addTest("Valid aircraft can land at an airport.", () => {
   aircraftTestSuite.assertEquals(actualAircraftId, expectedAircraftId);
 });
 
-aircraftTestSuite.addTest("Aircraft can only land if they have clearance for landing.", () => {
+aircraftTestSuite.addTest("An aircraft cannot land if it does not have clearance", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedGroundedLength = 0;

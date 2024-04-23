@@ -112,7 +112,7 @@ airportTestSuite.addTest("Airports can check the status of aircraft that are in 
   airportTestSuite.assertEquals(actualStatus, expectedStatus);
 });
 
-airportTestSuite.addTest("Airports can clear aircraft for landing.", () => {
+airportTestSuite.addTest("Airports can clear valid aircraft for landing.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedClearance = true;
@@ -125,7 +125,7 @@ airportTestSuite.addTest("Airports can clear aircraft for landing.", () => {
   airportTestSuite.assertEquals(actualClearance, expectedClearance);
 });
 
-airportTestSuite.addTest("Airports can only clear aircraft for landing if there is at least 1 space at the airport.", () => {
+airportTestSuite.addTest("Airports cannot clear aircraft for landing if the capacity of the airport is full.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedGroundedLength = 10;
@@ -142,7 +142,7 @@ airportTestSuite.addTest("Airports can only clear aircraft for landing if there 
   airportTestSuite.assertEquals(actualGroundedLength, expectedGroundedLength);
 });
 
-airportTestSuite.addTest("Airports can only give an aircraft clearance for landing if the aircraft is not grounded.", () => {
+airportTestSuite.addTest("Airports cannot clear aircraft for landing if the aircraft is not grounded.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedLandingClearance = false;
@@ -155,7 +155,7 @@ airportTestSuite.addTest("Airports can only give an aircraft clearance for landi
   airportTestSuite.assertEquals(actualLandingClearance, expectedLandingClearance);
 });
 
-airportTestSuite.addTest("Airports can only clear aircraft for take off if they are grounded.", () => {
+airportTestSuite.addTest("Airports cannot clear aircraft for take off if the aircraft is not airborne.", () => {
   const airport = new Airport();
   const aircraft = new Aircraft("OA815");
   const expectedClearance = false;
