@@ -208,4 +208,18 @@ airportTestSuite.addTest("All aircraft have their clearance to land revoked if t
   airportTestSuite.assertEquals(actualAircraftWithClearance, expectedAircraftWithClearance);
 });
 
+airportTestSuite.addTest("Airports cannot give clearance to land if the weather is stormy.", () => {
+  const airport = new Airport();
+  const aircraft = new Aircraft("OA815");
+  aircraft.enterAirspace(airport);
+  const expectedClearance = false;
+
+  airport.weatherIsStormy();
+  airport.clearAircraftForLanding(aircraft);
+
+  const actualClearance = aircraft.checkLandingClearance();
+
+  airportTestSuite.assertEquals(actualClearance, expectedClearance);
+})
+
 export default airportTestSuite;
