@@ -56,7 +56,7 @@ export default class Airport {
 
   clearAircraftForTakeOff(aircraftToClear) {
     if (aircraftToClear.getStatus() === "grounded") {
-      aircraftToClear.checkTakeOffClearance() = true;
+      aircraftToClear.hasTakeOffClearance = true;
     } else {
       console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not grounded.`)
     }
