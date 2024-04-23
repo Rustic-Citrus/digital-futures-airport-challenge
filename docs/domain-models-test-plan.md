@@ -26,6 +26,10 @@
     - [User Stories](#user-stories)
     - [Domain Model](#domain-model-3)
     - [Test Cases](#test-cases-3)
+  - [Cannot Give Clearance If Weather is Stormy](#cannot-give-clearance-if-weather-is-stormy)
+    - [User Stories](#user-stories-1)
+    - [Domain Model](#domain-model-4)
+    - [Test Cases](#test-cases-4)
 
 ## Check Total Number of Aircraft at the Airport
 
@@ -160,3 +164,40 @@ As a **hacker/disgruntled employee**, I want to be able to clear planes for take
 
 * [X] Airports can only clear aircraft for take off if they are grounded.
 * [X] Aircraft can take off from an airport if they have clearance and are grounded.
+
+## Cannot Give Clearance If Weather is Stormy
+
+### User Stories
+
+As a **meteorologist**, I want to be able to take away a plane's clearance for landing when the weather is stormy, so that the risk of an accident is minimised.
+
+As a **meteorologist**, I want to be able to take away a plane's clearance for take off when the weather is stormy, so that the risk of an accident is minimised.
+
+As a **hacker/disgruntled employee**, I want to be able to override the feature that takes away a plane's clearance due to bad weather, so that I can cause an accident.
+
+### Domain Model
+
+| Object | Property | Message | Output |
+| --- | --- | --- | --- |
+| Airport | grounded @Array[@Aircraft] | getGroundedAircraft() | @Array[@Aircraft] |
+|  |  | getTotalGrounded() | @Number |
+|  |  | moveAircraftToAirport(@Aircraft) |  |
+|  | capacity @Number | getCapacity() | @Number  |
+|  | | setCapacity(@Number) |  |
+|  | airspace @Array[@Aircraft] | getAircraftInAirspace() | @Array[@Aircraft]  |
+|  | | clearAircraftForLanding(@Aircraft) |  |
+|  | | clearAircraftForTakeOff(@Aircraft) | |
+|  | #currentWeather @String | checkWeather() | @String |
+| Aircraft | flightNumber @String | getFlightNumber() | @String |
+|  | airline @String | getAirline() | @String |
+|  | hasLandingClearance @Boolean | checkLandingClearance() | @Boolean |
+|  | status @String | getStatus() | @String |
+|  | | land(@Airport) | |
+|  | | enterAirspace(@Airport) | |
+|  | | takeOff(@Airport) | |
+|  | hasTakeOffClearance @Boolean | checkTakeOffClearance() | @Boolean |
+
+### Test Cases
+
+* [ ] All aircraft should have their clearance to take off revoked if a weather check returns "stormy".
+* [ ] Airports cannot give clearance to land if a weather check returns "stormy".
