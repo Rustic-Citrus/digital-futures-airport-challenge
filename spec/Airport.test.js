@@ -220,6 +220,6 @@ airportTestSuite.addTest("Airports cannot give clearance to land if the weather 
   const actualClearance = aircraft.checkLandingClearance();
 
   airportTestSuite.assertEquals(actualClearance, expectedClearance);
-})
+});
 
 export default airportTestSuite;
