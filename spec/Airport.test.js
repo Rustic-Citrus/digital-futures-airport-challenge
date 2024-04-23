@@ -168,7 +168,7 @@ airportTestSuite.addTest("Airports cannot clear aircraft for take off if the air
   airportTestSuite.assertEquals(actualClearance, expectedClearance);
 });
 
-airportTestSuite.addTest("All aircraft have their clearance to take off revoked if a weather check returns 'stormy'.", () => {
+airportTestSuite.addTest("All aircraft have their clearance to take off revoked if the weather is stormy.", () => {
   const airport = new Airport();
   const randomAircraft = generateRandomAircraft(6);
   randomAircraft.forEach((vehicle, i) => {
@@ -183,6 +183,26 @@ airportTestSuite.addTest("All aircraft have their clearance to take off revoked 
   let actualAircraftWithClearance = 0;
   airport.grounded.forEach((vehicle) => {
     if (vehicle.checkTakeOffClearance()) actualAircraftWithClearance++;
+  })
+
+  airportTestSuite.assertEquals(actualAircraftWithClearance, expectedAircraftWithClearance);
+});
+
+airportTestSuite.addTest("All aircraft have their clearance to land revoked if the weather is stormy.", () => {
+  const airport = new Airport();
+  const randomAircraft = generateRandomAircraft(6);
+  randomAircraft.forEach((vehicle, i) => {
+    vehicle.enterAirspace(airport);
+    airport.clearAircraftForLanding(airport.airspace[i]);
+  });
+  const expectedAircraftWithClearance = 0;
+
+  airport.weatherIsStormy();
+  airport.checkWeather();
+
+  let actualAircraftWithClearance = 0;
+  airport.airspace.forEach((vehicle) => {
+    if (vehicle.checkLandingClearance()) actualAircraftWithClearance++;
   })
 
   airportTestSuite.assertEquals(actualAircraftWithClearance, expectedAircraftWithClearance);
