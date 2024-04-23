@@ -188,6 +188,8 @@ As a **hacker/disgruntled employee**, I want to be able to override the feature 
 |  | | clearAircraftForLanding(@Aircraft) |  |
 |  | | clearAircraftForTakeOff(@Aircraft) | |
 |  | #currentWeather @String | checkWeather() | @String |
+|  |  | revokeTakeOffClearance(@Aircraft) | |
+|  |  | revokeLandingClearance(@Aircraft) | |
 | Aircraft | flightNumber @String | getFlightNumber() | @String |
 |  | airline @String | getAirline() | @String |
 |  | hasLandingClearance @Boolean | checkLandingClearance() | @Boolean |
