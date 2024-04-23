@@ -17,10 +17,10 @@ export default class TestFramework {
     this.tests.forEach((test, i) => {
       try {
         test.testFunction();
-        console.log(`TEST #${i}: PASS - ${test.description}`);
+        console.log(`TEST #${i + 1}: PASS - ${test.description}`);
         this.passed++;
       } catch (error) {
-        console.log(`TEST #${i}: FAIL - ${test.description}`);
+        console.log(`TEST #${i + 1}: FAIL - ${test.description}`);
         console.log(`ERROR: ${error.message}`);
         this.failed++;
       }
