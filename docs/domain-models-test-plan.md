@@ -199,5 +199,7 @@ As a **hacker/disgruntled employee**, I want to be able to override the feature 
 
 ### Test Cases
 
-* [ ] All aircraft have their clearance to take off revoked if a weather check returns "stormy".
+* [X] All aircraft have their clearance to take off revoked if a weather check returns "stormy".
+* [ ] All aircraft have their clearance to land revoked if a weather check returns "stormy".
 * [ ] Airports cannot give clearance to land if a weather check returns "stormy".
+* [ ] Airports cannot give clearance to take off if a weather check returns "stormy".
