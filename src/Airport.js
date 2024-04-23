@@ -66,7 +66,7 @@ export default class Airport {
   checkWeather() {
     if (this.weather === "stormy") {
       for (const vehicle of this.grounded) {
-        if (vehicle.hasTakeOffClearance) vehicle.revokeTakeOffClearance();
+        if (vehicle.hasTakeOffClearance) this.revokeTakeOffClearance(vehicle);
       }
     }
   }
