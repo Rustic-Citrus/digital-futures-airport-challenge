@@ -46,12 +46,14 @@ export default class Airport {
   }
 
   clearAircraftForLanding(aircraftToClear) {
-    if (this.capacity > this.grounded.length && aircraftToClear.getStatus() === "airborne") {
+    if (this.capacity > this.grounded.length && aircraftToClear.getStatus() === "airborne" && this.weather != "stormy") {
       aircraftToClear.hasLandingClearance = true;
     } else if (this.capacity <= this.grounded.length) {
       console.error("ERROR: Insufficient space at airport.");
     } else if (aircraftToClear.getStatus() != "airborne") {
-      console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not airborne.`)
+      console.error(`ERROR: ${aircraftToClear.getFlightNumber()} is not airborne.`);
+    } else if (this.weather === "stormy") {
+      console.error("ERROR: Current weather conditions prevent a safe landing.");
     }
   }
 
