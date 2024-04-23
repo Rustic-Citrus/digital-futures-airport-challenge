@@ -177,6 +177,7 @@ airportTestSuite.addTest("All aircraft have their clearance to take off revoked 
   });
   const expectedAircraftWithClearance = 0;
 
+  airport.weatherIsStormy();
   airport.checkWeather();
 
   let actualAircraftWithClearance = 0;
