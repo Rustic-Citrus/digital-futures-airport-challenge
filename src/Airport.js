@@ -68,6 +68,9 @@ export default class Airport {
       for (const vehicle of this.grounded) {
         if (vehicle.hasTakeOffClearance) this.revokeTakeOffClearance(vehicle);
       }
+      for (const vehicle of this.airspace) {
+        if (vehicle.hasLandingClearance) this.revokeLandingClearance(vehicle);
+      }
     }
   }
 
@@ -81,5 +84,9 @@ export default class Airport {
 
   revokeTakeOffClearance(designatedAircraft) {
     designatedAircraft.hasTakeOffClearance = false;
+  }
+
+  revokeLandingClearance(designatedAircraft) {
+    designatedAircraft.hasLandingClearance = false;
   }
 }
